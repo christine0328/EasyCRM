@@ -23,7 +23,7 @@ podTemplate(
             sh 'pwd'
             git status
             git checkout staging
-            git merge origin / master
-    }
+            git merge 'origin/master'
+        }
     }
     }
