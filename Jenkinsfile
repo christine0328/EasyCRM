@@ -1,4 +1,4 @@
-/* groovylint-disable NglParseError */
+/* groovylint-disable DuplicateStringLiteral, NglParseError */
 /* groovylint-disable-next-line NglParseError */
 podTemplate(
    containers: [
@@ -6,7 +6,8 @@ podTemplate(
         containerTemplate(name: 'eb', image: 'mini/eb-cli', command: 'cat', ttyEnabled: true)],
     volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]) {
     node(POD_LABEL) {
-        properties(
+        stage('fast-forward to staging') {
+            properties(
                 [
                         pipelineTriggers(
                                 [
@@ -18,9 +19,11 @@ podTemplate(
                         )
                 ]
         )
+            checkout scm
             sh 'pwd'
-            sh 'git status'
-            sh 'git checkout staging'
-            sh 'git merge origin/master'
+            git status
+            git checkout staging
+            git merge origin / master
+    }
     }
     }
