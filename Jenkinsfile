@@ -6,9 +6,18 @@ podTemplate(
         containerTemplate(name: 'eb', image: 'mini/eb-cli', command: 'cat', ttyEnabled: true)],
     volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]) {
     node(POD_LABEL) {
-        triggers {
-                cron('*/2 * * * *')
-        }
+        properties(
+                [
+                        pipelineTriggers(
+                                [
+                                        [
+                                                $class: 'hudson.triggers.TimerTrigger',
+                                                spec  : '*/5 * * * *'
+                                        ]
+                                ]
+                        )
+                ]
+        )
             sh 'pwd'
             sh 'git status'
             sh 'git checkout staging'
