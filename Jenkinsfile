@@ -27,6 +27,9 @@ podTemplate(
         }
 
         stage('load test') {
+            sh 'ls'
+            sh 'cd tests'
+            sh 'python3 load_test.py'
         }
     }
     }
