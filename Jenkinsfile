@@ -13,7 +13,7 @@ podTemplate(
                                 [
                                         [
                                                 $class: 'hudson.triggers.TimerTrigger',
-                                                spec  : '*/5 * * * *'
+                                                spec  : '0 * * * *'
                                         ]
                                 ]
                         )
