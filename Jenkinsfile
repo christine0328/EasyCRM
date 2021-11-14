@@ -28,6 +28,7 @@ podTemplate(
 
         stage('load test') {
             sh 'ls'
+            sh 'sudo apt install python3-pip'
             sh 'pip3 install locust'
             sh 'python3 tests/load_test.py'
         }
