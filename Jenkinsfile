@@ -28,6 +28,7 @@ podTemplate(
 
         stage('load test') {
             sh 'ls'
+            sh 'pip install locust'
             sh 'python tests/load_test.py'
         }
     }
