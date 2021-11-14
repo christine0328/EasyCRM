@@ -21,9 +21,9 @@ podTemplate(
         )
             checkout scm
             sh 'pwd'
-            git status
-            git checkout staging
-            git merge 'origin/master'
+            sh 'git status'
+            sh 'git checkout staging'
+            sh 'git merge origin/master'
         }
     }
     }
