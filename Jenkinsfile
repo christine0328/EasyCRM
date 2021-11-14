@@ -28,9 +28,7 @@ podTemplate(
 
         stage('load test') {
             sh 'ls'
-            sh 'cd tests'
-            sh 'ls'
-            sh 'python load_test.py'
+            sh 'python tests/load_test.py'
         }
     }
     }
