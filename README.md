@@ -99,3 +99,4 @@ core -> controller
 2. Setup deployment for the frontend to S3
 3. Point CloudFront to the S3
 4. Use Terraform to do the deployment
+
