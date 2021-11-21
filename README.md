@@ -7,6 +7,7 @@ An open source Customer Relationship Management system powered by Flask and SQLA
 **Modified by Yu**
 
 
+
 # Prerequisite
 
 This app only works with python:3.6.4 so please setup your local python environment to use version 3.6.4
