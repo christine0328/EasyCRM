@@ -11,5 +11,5 @@ podTemplate(
                     sh 'docker build -t kriscloud001/easy_crm:v1 -f Dockerfile.dev .'
                     sh 'docker run -e CI=true easycrm/react-app npm run test -- --coverage --watchAll=false'
         }
-    }
+      }
     }
