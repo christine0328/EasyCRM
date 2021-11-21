@@ -1,0 +1,15 @@
+/* groovylint-disable DuplicateStringLiteral, NglParseError */
+/* groovylint-disable-next-line NglParseError */
+podTemplate(
+   containers: [
+        containerTemplate(image: 'docker', name: 'docker', command: 'cat', ttyEnabled: true),
+        containerTemplate(name: 'eb', image: 'mini/eb-cli', command: 'cat', ttyEnabled: true)],
+    volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]) {
+    node(POD_LABEL) {
+        stage('Build and test') {
+                    checkout scm
+                    sh 'docker build -t kriscloud001/easy_crm:v1 -f Dockerfile.dev .'
+                    sh 'docker run -e CI=true easycrm/react-app npm run test -- --coverage --watchAll=false'
+        }
+    }
+    }
