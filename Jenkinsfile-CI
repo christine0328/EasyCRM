@@ -13,7 +13,7 @@ podTemplate(
 
                     sh 'docker build -t kriscloud001/easy_crm:v1 .'
                     sh 'docker login --username ${USER} --password ${PASSWD}'
-                    sh 'docker run -e CI=true easycrm/react-app npm run test -- --coverage --watchAll=false'
+                    sh 'docker run -e CI=true kriscloud001/easy_crm:v npm run test -- --coverage --watchAll=false'
             }
             }
             }
