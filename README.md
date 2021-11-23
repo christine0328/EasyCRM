@@ -75,6 +75,7 @@ core -> controller
 - run.py ...... Run the App from here
 ```
 
+
 # DevOps Ideas
 
 1. Fork and separate the branch to master(dev), staging, prod
