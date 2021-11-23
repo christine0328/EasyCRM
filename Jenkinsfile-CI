@@ -7,13 +7,15 @@ podTemplate(
     volumes: [hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock')]) {
         node(POD_LABEL) {
             stage('Build and test') {
-            withCredentials([usernamePassword(credentialsId: 'DockerCredential', usernameVariable: 'USER', passwordVariable: 'PASSWD')]) {
-                checkout scm
+            container('docker') {
+                withCredentials([usernamePassword(credentialsId: 'DockerCredential', usernameVariable: 'USER', passwordVariable: 'PASSWD')]) {
+                    checkout scm
 
-                sh 'docker build -t kriscloud001/easy_crm:v1 .'
-                sh 'docker login --username ${USER} --password ${PASSWD}'
-                sh 'docker run -e CI=true easycrm/react-app npm run test -- --coverage --watchAll=false'
+                    sh 'docker build -t kriscloud001/easy_crm:v1 .'
+                    sh 'docker login --username ${USER} --password ${PASSWD}'
+                    sh 'docker run -e CI=true easycrm/react-app npm run test -- --coverage --watchAll=false'
+            }
+            }
             }
             }
         }
-    }
