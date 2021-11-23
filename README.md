@@ -85,6 +85,7 @@ core -> controller
 6. Use a load tester to test the performance and monitor it. Point out the problems
 7. Set up a CDN and Application Load Balancer
 8. Use Terraform for monitor/infra set up
+9. 
 
 ## Advanced
 
