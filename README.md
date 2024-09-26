@@ -2,6 +2,7 @@
 # EasyCRM
 An open source Customer Relationship Management system powered by Flask and SQLAlchemy.
 
+
 **Originally Created by [Chris Hall](www.chrishall.io)**
 
 **Modified by Yu**
